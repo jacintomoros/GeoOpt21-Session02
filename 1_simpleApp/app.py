@@ -14,13 +14,13 @@ hops = hs.Hops(app)
 
 @hops.component(
     "/mycomponent",
-    name = "MyComponent",
+    name = "My project text",
     inputs=[
         hs.HopsString("Name", "N", "Provide your name"),
-        hs.HopsInteger("Age", "A", "Provide your age")
+        hs.HopsInteger("Age", "A", "Provide your age", default = 29)
     ],
     outputs=[
-       hs.HopsString("Text","T","Print name and age")
+       hs.HopsString("Papayaa","T","Print name and age")
     ]
 )
 def printNameAndAge(name, age):
