@@ -3,14 +3,15 @@ from flask import Flask
 import ghhops_server as hs
 import rhino3dm as rg
 import geometry as geo
+import scipy as sp
 
 app = Flask(__name__)
 hops = hs.Hops(app)
 
 #creating the workflow
 @hops.component(
-    "/createStarGraph",
-    name = "Create a Star Graph",
+    "/createNetWork",
+    name = "Create NetWork",
     inputs=[
     ],
     outputs=[

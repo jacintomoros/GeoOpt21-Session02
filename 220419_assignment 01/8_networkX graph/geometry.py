@@ -1,6 +1,8 @@
 import rhino3dm as rg
 import networkx as nx
 import random
+import scipy as sp
+
 
 def createGridGraph():
 
