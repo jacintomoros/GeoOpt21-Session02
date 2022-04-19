@@ -19,18 +19,18 @@ hops = hs.Hops(app)
     name = "Slicing object",
     inputs=[
         hs.HopsBrep("Shape", "S", "Brep or mesh to contour", hs.HopsParamAccess.ITEM),
-        hs.HopsPoint("Point", "PT", "Contour start point", hs.HopsParamAccess.ITEM, default= (0,0,0)),
-        hs.HopsNumber("Direction", "DR", "Contour normal direction", hs.HopsParamAccess.ITEM, default= (0,0,1)),
-        hs.HopsNumber("Distance", "DI", "Distance between countours", hs.HopsParamAccess.ITEM, default= 1)
+        # hs.HopsPoint("Point", "PT", "Contour start point", hs.HopsParamAccess.ITEM, default= (0,0,0)),
+        # hs.HopsNumber("Direction", "DR", "Contour normal direction", hs.HopsParamAccess.ITEM, default= (0,0,1)),
+        # hs.HopsNumber("Distance", "DI", "Distance between countours", hs.HopsParamAccess.ITEM, default= 1)
 
     ],
     outputs=[
        hs.HopsCurve("Resulting Countours","RC","List of generated slicing sections ", hs.HopsParamAccess.LIST)
     ]
 )
-def contour(shape,pt, dr, di):
+def contour(shape):
 
-    countourCrvs = geo.createcountourCrvs(shape,pt, dr, di)
+    countourCrvs = geo.createcountourCrvs(shape)
     return countourCrvs
 
 
