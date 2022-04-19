@@ -2,7 +2,7 @@ from flask import Flask
 import ghhops_server as hs
 
 #notice, we import another file as a library
-# import geometry as geo
+import geometry as geo
 
 # #we also import random library to generate some randomness 
 # import random as r
@@ -18,26 +18,26 @@ hops = hs.Hops(app)
     "/contour",
     name = "Slicing object",
     inputs=[
-        hs.HopsBrep("Shape", "S", "Brep or mesh to contour", hs.HopsParamAccess.ITEM),
+        hs.HopsBrep("Shape", "Brep", "Brep or mesh to analyze", hs.HopsParamAccess.ITEM),
         # hs.HopsPoint("Point", "PT", "Contour start point", hs.HopsParamAccess.ITEM, default= (0,0,0)),
         # hs.HopsNumber("Direction", "DR", "Contour normal direction", hs.HopsParamAccess.ITEM, default= (0,0,1)),
-        # hs.HopsNumber("Distance", "DI", "Distance between countours", hs.HopsParamAccess.ITEM, default= 1)
+        # hs.HopsInteger("Distance", "DI", "Distance between countours", hs.HopsParamAccess.ITEM, default= 1)
 
     ],
     outputs=[
-       hs.HopsCurve("Resulting Countours","RC","List of generated slicing sections ", hs.HopsParamAccess.LIST)
+       hs.HopsCurve("Resulting Edges","Edges","List of generated edges ", hs.HopsParamAccess.LIST),
+       hs.HopsPoint("Resulting Nodes","Nodes","List of generated nodes ", hs.HopsParamAccess.LIST)
     ]
 )
 
-def createcountourCrvs(brep):
-    
-    crvs = []
-    for i in range(len(brep.Edges)):
-        e = brep.Edges[i]
-        crvs.append(e)
-    # print (e)
-    return crvs
 
+def createcountourCrvs(brep):
+
+    edges = geo.brepEdges(brep)
+    nodes = geo.brepNodes()
+    
+    return edges, nodes
+    
 #be careful with cache!
 if __name__== "__main__":
     app.run(debug=True)
