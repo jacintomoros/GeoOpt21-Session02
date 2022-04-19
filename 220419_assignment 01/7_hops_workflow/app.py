@@ -2,7 +2,7 @@ from flask import Flask
 import ghhops_server as hs
 
 #notice, we import another file as a library
-import geometry as geo
+# import geometry as geo
 
 # #we also import random library to generate some randomness 
 # import random as r
@@ -28,13 +28,14 @@ hops = hs.Hops(app)
        hs.HopsCurve("Resulting Countours","RC","List of generated slicing sections ", hs.HopsParamAccess.LIST)
     ]
 )
-def contour(shape):
 
-    countourCrvs = geo.createcountourCrvs(shape)
-    return countourCrvs
+def createcountourCrvs(shape):
 
-
-
+    e = []
+    for i in range(len(shape.Edges)):
+        e = brep.Edges[i]
+    print (e)
+    return e
 
 #be careful with cache!
 if __name__== "__main__":
