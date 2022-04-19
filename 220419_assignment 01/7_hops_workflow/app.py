@@ -29,13 +29,14 @@ hops = hs.Hops(app)
     ]
 )
 
-def createcountourCrvs(shape):
-
-    e = []
-    for i in range(len(shape.Edges)):
+def createcountourCrvs(brep):
+    
+    crvs = []
+    for i in range(len(brep.Edges)):
         e = brep.Edges[i]
-    print (e)
-    return e
+        crvs.append(e)
+    # print (e)
+    return crvs
 
 #be careful with cache!
 if __name__== "__main__":
