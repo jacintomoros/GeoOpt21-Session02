@@ -26,7 +26,7 @@ hops = hs.Hops(app)
     ],
     outputs=[
        hs.HopsCurve("Resulting Edges","Edges","List of generated edges ", hs.HopsParamAccess.LIST),
-       hs.HopsPoint("Resulting Nodes","Nodes","List of generated nodes ", hs.HopsParamAccess.LIST)
+    #    hs.HopsPoint("Resulting Nodes","Nodes","List of generated nodes ", hs.HopsParamAccess.LIST)
     ]
 )
 
@@ -34,9 +34,10 @@ hops = hs.Hops(app)
 def createcountourCrvs(brep):
 
     edges = geo.brepEdges(brep)
-    nodes = geo.brepNodes()
+    # nodes = geo.brepNodes()
     
-    return edges, nodes
+    return edges, 
+    # nodes
     
 #be careful with cache!
 if __name__== "__main__":
