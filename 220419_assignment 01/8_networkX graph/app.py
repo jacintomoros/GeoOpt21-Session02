@@ -1,4 +1,3 @@
-#importing libraries and 'geometry' file
 from flask import Flask
 import ghhops_server as hs
 import rhino3dm as rg
@@ -8,7 +7,6 @@ import scipy as sp
 app = Flask(__name__)
 hops = hs.Hops(app)
 
-#creating the workflow
 @hops.component(
     "/createNetWork",
     name = "Create NetWork",
@@ -20,7 +18,7 @@ hops = hs.Hops(app)
 
     ]
 )
-def createStarGraph():
+def createNetwork():
 
     G = geo.createGridGraph()
     GW = geo.addRandomWeigths(G)

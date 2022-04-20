@@ -6,7 +6,7 @@ import scipy as sp
 
 def createGridGraph():
 
-    G = nx.star_graph(20)
+    G = nx.lollipop_graph(10, 20)
     G.add_nodes_from([20,21])
     G.add_edges_from([(19,20), (20,6), (8,16), (16,21)])
     return G
@@ -26,7 +26,7 @@ def addRandomWeigths(G):
 
 def getNodes(G):
 
-    lay =  nx.kamada_kawai_layout(G)
+    lay =  nx.spiral_layout(G)
 
     nodes = []
     for d in lay.values():
@@ -38,7 +38,7 @@ def getNodes(G):
 
 def getEdges(G):
 
-    lay =  nx.kamada_kawai_layout(G)
+    lay =  nx.spiral_layout(G)
 
     edges = []
     for e in G.edges:
@@ -48,14 +48,4 @@ def getEdges(G):
         edges.append(line)
 
     return edges
-
-
-"""
-G = createGridGraph(3,3)
-GW = addRandomWeigrhs(G)
-
-nodes = getNodes(G)
-edges = getEdges(G)
-"""
-
 
