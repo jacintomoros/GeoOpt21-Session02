@@ -6,9 +6,9 @@ import scipy as sp
 
 def createGridGraph():
 
-    G = nx.lollipop_graph(10, 20)
-    G.add_nodes_from([20,21])
-    G.add_edges_from([(19,20), (20,6), (8,16), (16,21)])
+    G = nx.lollipop_graph(5,20)
+    G.add_nodes_from([5,14])
+    G.add_edges_from([(8,9), (14,2), (6,5), (15,16),(8,12), (12,4), (5,1), (0,16)])
     return G
 
 def addRandomWeigths(G):
@@ -16,7 +16,7 @@ def addRandomWeigths(G):
     NG = nx.Graph()
     for u,v,data in G.edges(data=True):
         #w = data['weight'] if 'weight' in data else 1.0
-        w = random.randint(1,10)
+        w = random.randint(1,5)
         if NG.has_edge(u,v):
             NG[u][v]['weight'] += w
         else:
